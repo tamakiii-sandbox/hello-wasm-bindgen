@@ -14,7 +14,7 @@ dependencies:
 	type node > /dev/null
 
 node/node_modules:
-	cd node && npm install --dev
+	npm install --dev
 
 versions:
 	@npm --version
@@ -22,10 +22,10 @@ versions:
 	@node --version
 
 build:
-	cd node && npx --no-install webpack
+	npx --no-install webpack
 
 build-dev:
-	cd node && npx --no-install webpack-dev-server --host 0.0.0.0 --port 8080 -d
+	npx --no-install webpack-dev-server --host 0.0.0.0 --port 8080 -d
 
 clean:
 	rm -rf node/node_modules
