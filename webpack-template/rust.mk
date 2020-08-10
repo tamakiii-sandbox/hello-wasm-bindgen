@@ -20,9 +20,6 @@ dependencies:
 	type cargo > /dev/null
 	type wasm-pack > /dev/null
 
-node_modules:
-	npm install
-
 versions:
 	@cargo --version
 	@wasm-pack --version
