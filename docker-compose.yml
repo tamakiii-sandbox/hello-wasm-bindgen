@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  rust:
+    build: .
+    command: "sh -c 'cd hello-webpack-template && cargo build --lib && wasm-pack build --out-name index .'"
+    volumes:
+      - .:/usr/hello-wasm-bindgen
+
+  node:
+    build: front
+    command: "sh -c 'cd hello-webpack-template && npm start'"
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/usr/hello-wasm-bindgen
