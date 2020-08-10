@@ -15,8 +15,6 @@ versions:
 	@curl --version | head -n 1
 	@wasm-pack --version
 	@rustc --version
-	# @npm --version
-	# @node --version
 
 build:
 	cargo build
