@@ -2,13 +2,15 @@ version: "3.8"
 services:
   rust:
     build: .
-    command: "sh -c 'cd hello-webpack-template && cargo build --lib && wasm-pack build --out-name index .'"
+    working_dir: /usr/hello-wasm-bindgen/webpack-template
+    command: "sh -c 'make -f rust.mk install && make -f rust.mk -B build'"
     volumes:
       - .:/usr/hello-wasm-bindgen
 
   node:
     build: front
-    command: "sh -c 'cd hello-webpack-template && npm start'"
+    working_dir: /usr/hello-wasm-bindgen/webpack-template
+    command: "sh -c 'make -f node.mk install && make -f node.mk -B build-dev'"
     ports:
       - 8080:8080
     volumes:
