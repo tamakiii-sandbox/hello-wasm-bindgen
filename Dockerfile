@@ -10,6 +10,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 COPY Makefile /tmp/
-RUN make -C /tmp install && rm -rf /tmp/Makefile
+RUN make -C /tmp install-deps && rm -rf /tmp/Makefile
 
 RUN echo "source /usr/local/cargo/env" >> ~/.bashrc
