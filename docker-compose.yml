@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  rust:
+    build: .
+    working_dir: /usr/hello-wasm-bindgen/${CRATE}
+    command: "sh -c 'make -f rust.mk install && make -f rust.mk -B build'"
+    volumes:
+      - .:/usr/hello-wasm-bindgen
+
+  node:
+    build: front
+    working_dir: /usr/hello-wasm-bindgen/${CRATE}
+    command: "sh -c 'make -f node.mk install && make -f node.mk -B build-dev'"
+    ports:
+      - 8080:8080
+    volumes:
+      - .:/usr/hello-wasm-bindgen
